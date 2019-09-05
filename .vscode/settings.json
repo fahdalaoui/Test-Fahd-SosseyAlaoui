@@ -1,0 +1,9 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "E:\\Projet\\database\\database.sqlite",
+            "dialect": "SQLite",
+            "name": "Illuminate\\Database\\Eloquent\\Collection"
+        }
+    ]
+}

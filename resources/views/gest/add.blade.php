@@ -5,19 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Ajouter un vehicule') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="post" action="{{ url('/gest/insert') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="nom" class="col-md-4 col-form-label text-md-right">{{ __('Nom et Prenom') }}</label>
+                            <label for="marque" class="col-md-4 col-form-label text-md-right">{{ __('Marque') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nom" type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ old('nom') }}" required autocomplete="nom" autofocus>
+                                <input id="marque" type="text" class="form-control @error('marque') is-invalid @enderror" name="marque" value="{{ old('marque') }}" required autocomplete="marque" autofocus>
 
-                                @error('nom')
+                                @error('marque')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -26,17 +26,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="fonction" class="col-md-4 col-form-label text-md-right">{{ __('Fonction') }}</label>
+                            <label for="immatriculation" class="col-md-4 col-form-label text-md-right">{{ __('Immatriculation') }}</label>
 
                             <div class="col-md-6">
-                                <select id="fonction" type="text" class="form-control @error('fonction') is-invalid @enderror" name="fonction" value="{{ old('fonction') }}" required autocomplete="fonction" autofocus>
-                                    <option disabled selected value>-- Veuillez selectionner une fonction --</option>
-                                    <option value="gest">Gestionnaires</option>
-                                    <option value="admin">Administrateur</option>
-                                    <option value="tech">Techniciens</option>
-                                </select>
-
-                                @error('fonction')
+                                <input id="immatriculation" type="text" class="form-control @error('immatriculation') is-invalid @enderror" name="immatriculation" value="{{ old('immatriculation') }}" required autocomplete="immatriculation" autofocus>
+                                    
+                                @error('immatriculation')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -45,12 +40,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="chevaux" class="col-md-4 col-form-label text-md-right">{{ __('Chevaux') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="chevaux" type="text" class="form-control @error('chevaux') is-invalid @enderror" name="chevaux" value="{{ old('chevaux') }}" required autocomplete="chevaux">
 
-                                @error('email')
+                                @error('chevaux')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -59,12 +54,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Énergie') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" required autocomplete="type">
 
-                                @error('password')
+                                @error('type')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -73,17 +68,24 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="modele" class="col-md-4 col-form-label text-md-right">{{ __('Modele') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="modele" type="text" class="form-control @error('modele') is-invalid @enderror" name="modele" required autocomplete="modele">
+
+                                @error('modele')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
+                        
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Ajouter') }}
                                 </button>
                             </div>
                         </div>

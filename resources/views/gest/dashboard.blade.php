@@ -34,22 +34,26 @@
 <div class="container">
     <div class="row justify-content-center">
     <table class="table">
-        <thead>
+        <thead class="thead-dark">
             <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nom et Prénom</th>
-            <th scope="col">Fonction</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Immatriculation</th>
+            <th scope="col">Chevaux</th>
+            <th scope="col">Type</th>
+            <th scope="col">Modele</th>
             <th scope="col">Action</th>
             </tr>
         </thead>
-        @foreach($users as $u)
+        @foreach($vehicules as $v)
             <tbody>
                 <tr>
-                    <th scope="row">{{$u->nom}}</th>
-                    <td>{{$u->email}}</td>
-                    <td>{{$u->fonction}}</td>
+                    <th scope="row">{{$v->marque}}</th>
+                    <td>{{$v->immatriculation}}</td>
+                    <td>{{$v->chevaux}}</td>
+                    <td>{{$v->type}}</td>
+                    <td>{{$v->modele}}</td>
                     <td>
-                        <a href="{{{url('/admin/dashboard/'.$u->email) }}}">
+                        <a href="{{{url('/gest/dashboard/'.$v->immatriculation) }}}">
                             <button class="btn" type="submit" onclick="return confirm('Êtes-vous sûr de bien vouloir supprimer cet élément?');">
                                 <i class="fa fa-trash"></i>
                             </button>
@@ -59,7 +63,7 @@
         @endforeach
         </tbody>
     </table>
-    <div><a href={{url('/admin/add')}}><button class="button btn-default">Ajouter gestionnaire/technicien</button></a></div>
+    <div><a href={{url('/gest/add')}}><button class="button btn-default">Ajouter un véhicule</button></a></div>
     </div>
 </div>
 @endsection

@@ -20,3 +20,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/dashboard','AdminController@dashboard');
+Route::get('/admin/dashboard/{name}','AdminController@delete');
+Route::get('/admin/add','AdminController@insert');
+Route::post('/admin/insert','AdminController@add');
+
+Route::get('/tech/dashboard','TechController@dashboard');
+
+Route::get('/gest/dashboard','GestController@dashboard');
+Route::get('/gest/add','GestController@insert');
+Route::post('/gest/insert','GestController@add');
+Route::get('/gest/dashboard/{name}','GestController@delete');

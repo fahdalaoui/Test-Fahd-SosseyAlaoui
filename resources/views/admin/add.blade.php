@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Ajouter') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="post" action="{{ url('/admin/insert') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -32,7 +32,6 @@
                                 <select id="fonction" type="text" class="form-control @error('fonction') is-invalid @enderror" name="fonction" value="{{ old('fonction') }}" required autocomplete="fonction" autofocus>
                                     <option disabled selected value>-- Veuillez selectionner une fonction --</option>
                                     <option value="gest">Gestionnaires</option>
-                                    <option value="admin">Administrateur</option>
                                     <option value="tech">Techniciens</option>
                                 </select>
 
@@ -83,7 +82,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Ajouter') }}
                                 </button>
                             </div>
                         </div>
