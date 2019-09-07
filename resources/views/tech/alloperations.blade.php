@@ -36,26 +36,28 @@
     <table class="table table-hover">
         <thead class="thead">
             <tr>
-            <th scope="col">Marque</th>
-            <th scope="col">Immatriculation</th>
-            <th scope="col">Chevaux</th>
-            <th scope="col">Type</th>
-            <th scope="col">Modele</th>
+            <th>Date de debut</th>
+            <th scope="col">Date de fin</th>
+            <th scope="col">Sujet</th>
+            <th scope="col">Description</th>
+            <th scope="col">Pieces</th>
+            <th scope="col">Notes</th>
             <th scope="col">Action</th>
             </tr>
         </thead>
-        @foreach($vehicules as $v)
+        @foreach($operations as $o)
             <tbody>
                 <tr>
-                    <th scope="row">{{$v->marque}}</th>
-                    <td>{{$v->immatriculation}}</td>
-                    <td>{{$v->chevaux}}</td>
-                    <td>{{$v->type}}</td>
-                    <td>{{$v->modele}}</td>
+                    <th scope="row">{{$o->dateDebut}}</th>
+                    <td>{{$o->dateFin}}</td>
+                    <td>{{$o->sujet}}</td>
+                    <td>{{$o->description}}</td>
+                    <td>{{$o->pieces}}</td>
+                    <td>{{$o->notes}}</td>
                     <td>
-                        <a href="{{{url('/tech/operation/'.$v->id) }}}">
+                        <a href="{{{url('/tech/update/'.$o->id) }}}">
                             <button class="btn" type="submit">
-                                <i class="fa fa-exclamation"></i>
+                                <i class="fa fa-plus-square"></i>
                             </button>
                         </a>
                     </td>
@@ -63,7 +65,6 @@
         @endforeach
         </tbody>
     </table>
-    <div><a href={{url('/tech/alloperations')}}><button class="button btn-default">Lister les opérations de maintenances</button></a></div>
     </div>
 </div>
 @endsection

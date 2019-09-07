@@ -20,12 +20,17 @@ class AdminController extends Controller
         
     }
     public function delete($email){
+        $fonction = Auth::user()->fonction;
+        if($fonction == 'tech') return redirect('/tech/dashboard');
+        if($fonction == 'gest') return redirect('/gest/dashboard');
         
         $data['user'] = DB::table('users')->where('email','=',$email)->delete();
         return redirect('/admin/dashboard');
     }
     public function insert(){
-        
+        $fonction = Auth::user()->fonction;
+        if($fonction == 'tech') return redirect('/tech/dashboard');
+        if($fonction == 'gest') return redirect('/gest/dashboard');
         return view ('/admin/add');
     }
     public function add(Request $request){

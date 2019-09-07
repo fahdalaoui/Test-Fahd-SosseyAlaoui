@@ -21,7 +21,9 @@ class GestController extends Controller
     }
 
     public function insert(){
-        
+        $fonction = Auth::user()->fonction;
+        if($fonction == 'admin') return redirect('/admin/dashboard');
+        if($fonction == 'tech') return redirect('/tech/dashboard');
         return view ('/gest/add');
     }
     public function add(Request $request){
@@ -41,6 +43,9 @@ class GestController extends Controller
     }
 
     public function delete($immatriculation){
+        $fonction = Auth::user()->fonction;
+        if($fonction == 'admin') return redirect('/admin/dashboard');
+        if($fonction == 'tech') return redirect('/tech/dashboard');
         
         $data['vehicules'] = DB::table('vehicules')->where('immatriculation','=',$immatriculation)->delete();
         return redirect('/gest/dashboard');
