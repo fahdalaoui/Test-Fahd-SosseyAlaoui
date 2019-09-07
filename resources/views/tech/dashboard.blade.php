@@ -58,6 +58,11 @@
                                 <i class="fa fa-exclamation"></i>
                             </button>
                         </a>
+                        <a href="{{{url('/vehiculeInfo/info/'.$v->id) }}}">
+                            <button class="btn" type="submit">
+                                <i class="fa fa-info"></i>
+                            </button>
+                        </a>
                     </td>
                 </tr>
         @endforeach

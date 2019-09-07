@@ -36,36 +36,26 @@
     <table class="table">
         <thead class="thead-dark">
             <tr>
-            <th scope="col">Marque</th>
             <th scope="col">Immatriculation</th>
-            <th scope="col">Chevaux</th>
             <th scope="col">Type</th>
-            <th scope="col">Modele</th>
             <th scope="col">Date d'achat</th>
-            <th scope="col">Action</th>
+            <th scope="col">Operation associées</th>
             </tr>
         </thead>
-        @foreach($vehicules as $v)
             <tbody>
                 <tr>
-                    <th scope="row">{{$v->marque}}</th>
-                    <td>{{$v->immatriculation}}</td>
-                    <td>{{$v->chevaux}}</td>
-                    <td>{{$v->type}}</td>
-                    <td>{{$v->modele}}</td>
-                    <td>{{$v->dateAchat}}</td>
+                    <td>{{$vehicules->immatriculation}}</td>
+                    <td>{{$vehicules->type}}</td>
+                    <td>{{$vehicules->dateAchat}}</td>
                     <td>
-                        <a href="{{{url('/gest/dashboard/'.$v->immatriculation) }}}">
-                            <button class="btn" type="submit" onclick="return confirm('Êtes-vous sûr de bien vouloir supprimer cet élément?');">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </a>
+                    @foreach ($vehicules->operations as $o)
+                        "{{$o->sujet}}"
+                    @endforeach
                     </td>
+                    
                 </tr>
-        @endforeach
         </tbody>
     </table>
-    <div><a href={{url('/gest/add')}}><button class="button btn-default">Ajouter un véhicule</button></a></div>
     </div>
 </div>
 @endsection

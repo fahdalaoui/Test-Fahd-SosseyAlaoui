@@ -22,6 +22,8 @@ class CreateOperationsTable extends Migration
             $table->string('pieces');
             $table->text('notes');
             $table->string('vehicule_id');
+            $table->string('status');
+            $table->string('image');
             $table->timestamps();
 
             $table->index('vehicule_id');

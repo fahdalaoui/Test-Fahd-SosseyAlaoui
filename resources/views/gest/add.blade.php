@@ -79,8 +79,21 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="dateAchat" class="col-md-4 col-form-label text-md-right">{{ __('Date d\'achat') }}</label>
 
+                            <div class="col-md-6">
+                                <input id="dateAchat" type="date" class="form-control @error('dateAchat') is-invalid @enderror" name="dateAchat" value="{{ old('dateAchat') }}"
+                                 required autocomplete="dateAchat" autofocus>
+                                
+                                @error('dateAchat')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

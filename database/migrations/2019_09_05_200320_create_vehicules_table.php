@@ -20,6 +20,8 @@ class CreateVehiculesTable extends Migration
             $table->integer('chevaux');
             $table->string('type');
             $table->string('modele');
+            $table->string('dateAchat');
+            $table->string('etat');
             $table->timestamps();
         });
     }

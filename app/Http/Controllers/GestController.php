@@ -32,12 +32,16 @@ class GestController extends Controller
        $chevaux = $request->input('chevaux');
        $type = $request->input('type');
        $modele = $request->input('modele');
+       $dateAchat = $request->input('dateAchat');
+       $etat = $request->input('etat');
        
        $data = array('marque'=>$marque,
        'immatriculation' => $immatriculation,
        'chevaux' => $chevaux,
        'type'=> $type,
-        'modele' =>$modele);
+        'modele' =>$modele,
+        'dateAchat'=>$dateAchat,
+        'etat'=>'Bien');
         DB::table('vehicules')->insert($data);
         return redirect('/gest/dashboard');
     }

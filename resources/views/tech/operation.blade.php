@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Ajouter une opération') }}</div>
 
                 <div class="card-body">
-                    <form method="post" action="{{ url('/tech/insert/'.$vech_id) }}">
+                    <form method="post" enctype="multipart/form-data"  action="{{ url('/tech/insert/'.$vech_id) }}">
                         {{csrf_field()}}
 
                         <div class="form-group row">
@@ -19,21 +19,6 @@
                                  required autocomplete="dateDebut" autofocus>
                                 
                                 @error('dateDebut')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="dateFin" class="col-md-4 col-form-label text-md-right">{{ __('Date de fin') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="dateFin" type="date" class="form-control @error('dateFin') is-invalid @enderror" name="dateFin" value="{{ old('dateFin') }}" 
-                                required autocomplete="dateFin" autofocus>
-                                    
-                                @error('dateFin')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -153,6 +138,19 @@
                                 <input id="Notes" type="text" class="form-control @error('Notes') is-invalid @enderror" name="Notes" required autocomplete="Notes">
 
                                 @error('Notes')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="image" type="file" class="form-control-file @error('Image') is-invalid @enderror" name="image" required autocomplete="image">
+
+                                @error('image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

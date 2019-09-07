@@ -36,12 +36,13 @@
     <table class="table table-hover">
         <thead class="thead">
             <tr>
-            <th>Date de debut</th>
+            <th>Date debut</th>
             <th scope="col">Date de fin</th>
             <th scope="col">Sujet</th>
             <th scope="col">Description</th>
             <th scope="col">Pieces</th>
             <th scope="col">Notes</th>
+            <th scope="col">Images des pieces</th>
             <th scope="col">Action</th>
             </tr>
         </thead>
@@ -54,10 +55,17 @@
                     <td>{{$o->description}}</td>
                     <td>{{$o->pieces}}</td>
                     <td>{{$o->notes}}</td>
+                    
+                    <td><img src="/storage/{{$o->image}}" style="width:80px"></td>
                     <td>
                         <a href="{{{url('/tech/update/'.$o->id) }}}">
                             <button class="btn" type="submit">
                                 <i class="fa fa-plus-square"></i>
+                            </button>
+                        </a>
+                        <a href="{{{url('/tech/dashboard/'.$o->id) }}}">
+                            <button class="btn" type="submit">
+                                <i class="fa fa-check"></i>
                             </button>
                         </a>
                     </td>

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Auth;
-use App\vehicule;
+use App\operation;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TechController extends Controller
@@ -23,24 +24,47 @@ class TechController extends Controller
     }
     
     public function add(Request $request){
-         $dateDebut = $request->input('dateDebut');
-         $dateFin = $request->input('dateFin');
-         $sujet = $request->input('sujet');
-         $Description = $request->input('Description');
-         $Pieces = implode(",",$request->pièces);
-         $technicien = Auth::user()->nom;
-         $Notes = $technicien .' : '.$request->input('Notes');
-         $vehicule = $request->route('id');
+        //   $data = array('dateDebut'=>$dateDebut,
+        //   'dateFin' => "",
+        //   'sujet' => $sujet,
+        //   'Description'=> $Description,
+        //   'Pieces' =>$Pieces,
+        //   'Notes'=>$Notes,
+        //   'vehicule_id'=>$vehicule,
+        //   'status'=>'En reparation');
+        //   DB::table('operations')->insert($data);
+        
+          $dateDebut = $request->input('dateDebut');
+          $sujet = $request->input('sujet');
+          $Description = $request->input('Description');
+          $Pieces = implode(",",$request->pièces);
+          $technicien = Auth::user()->nom;
+          $Notes = $technicien .' : '.$request->input('Notes');
+          $vehicule = $request->route('id');
+          $image = request('image')->store('uploads','public');
+          
+          $data = new \App\Operation();
 
-         $data = array('dateDebut'=>$dateDebut,
-         'dateFin' => $dateFin,
-         'sujet' => $sujet,
-         'Description'=> $Description,
-         'Pieces' =>$Pieces,
-         'Notes'=>$Notes,
-         'vehicule_id'=>$vehicule);
-         DB::table('operations')->insert($data);
-         return redirect('/tech/dashboard');
+        $data->dateDebut = $dateDebut;
+        $data->dateFin = "";
+        $data->sujet = $sujet;
+        $data->Description = $Description;
+        $data->Pieces = $Pieces;
+        $data->Notes = $Notes;
+        $data->vehicule_id = $vehicule;
+        $data->status = "En reparation";
+        $data->image = $image;
+
+        $data->save();
+
+           $etat= DB::table('vehicules')->where('id','=',$request->route('id'))->get();
+          foreach($etat as $e){
+              DB::table('vehicules')
+              ->where('id', $request->route('id'))
+              ->update(['etat' => 'En reparation']);
+         }
+
+          return redirect('/tech/dashboard');
     }
 
     public function allOperations(){
@@ -70,5 +94,27 @@ class TechController extends Controller
             ->update(['notes' => $final_note]);
         }
         return redirect('/tech/alloperations');
+    }
+    public function terminer($id){
+        $operation= DB::table('operations')->where('id','=',$id)->get();
+        $dateFin = Carbon::now();
+        foreach ($operation as $o){
+            DB::table('operations')
+            ->where('id', $id)
+            ->update(['dateFin' => $dateFin->toDateString()]);
+            DB::table('operations')
+            ->where('id', $id)
+            ->update(['status' => 'Terminer']);
+            DB::table('vehicules')
+            ->where('id', $id)
+            ->update(['etat' => 'Reparer']);
+        }
+        return redirect("/tech/alloperations");
+    }
+    
+    public function info($veh){
+        $vehi = $veh;
+        $vehicules['vehicules'] = \App\vehicule::find($vehi);
+        return view("/vehiculeInfo/info",$vehicules);
     }
 }

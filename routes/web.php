@@ -30,8 +30,12 @@ Route::get('/tech/alloperations','TechController@allOperations');
 Route::post('/tech/insert/{id}','TechController@add');
 Route::get('/tech/update/{id}','TechController@update');
 Route::post('/tech/modifier/{id}','TechController@modifier');
+Route::get('/tech/dashboard/{id}','TechController@terminer');
+
+Route::get('/vehiculeInfo/info/{id}','TechController@info');
 
 Route::get('/gest/dashboard','GestController@dashboard');
 Route::get('/gest/add','GestController@insert');
 Route::post('/gest/insert','GestController@add');
 Route::get('/gest/dashboard/{immatriculation}','GestController@delete');
+
