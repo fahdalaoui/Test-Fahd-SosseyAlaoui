@@ -34,18 +34,6 @@ class AddController extends Controller
      */
     public function store(Request $request)
     {
-       /* $this->validate($request,[
-            'nom' => ['required', 'string', 'max:255'],
-            'fonction' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-        DB::table('users')->insertGetId(
-            array('nom' => $request['nom'],
-             'fonction' => $request['fonction'],
-             'email'=> $request['email'],
-             'password' =>Hash::make($request['password'])));
-        return redirect()->route('admin.add')->with('success','Ajouter avec succès');*/
         $this->validate($request,[
             'nom' => ['required', 'string', 'max:255'],
             'fonction' => ['required', 'string', 'max:255'],

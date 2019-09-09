@@ -10,6 +10,8 @@ class vehicule extends Model
         'marque', 'immatriculation', 'chevaux', 'type', 'modele', 'dateAchat','etat'
     ];
 
+    //relation between operations and vehicule (a relation of n,1)
+    //a vehicule can have 1 or n operations
     public function operations(){
         return $this->hasMany(Operation::class);
     }

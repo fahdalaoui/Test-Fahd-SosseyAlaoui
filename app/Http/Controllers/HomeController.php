@@ -25,4 +25,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    
+    public function operationSelector($mois){
+        $count = DB::table('operations')->whereMonth('dateDebut', $mois)->get()->count();
+        $data_to_pass_to_view = [];
+        $data_to_pass_to_view["count"] = $count;
+        return view('/test',$data_to_pass_to_view);
+    }
 }

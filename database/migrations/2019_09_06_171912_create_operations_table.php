@@ -25,7 +25,8 @@ class CreateOperationsTable extends Migration
             $table->string('status');
             $table->string('image');
             $table->timestamps();
-
+            
+            //foreign key of vehicule
             $table->index('vehicule_id');
         });
     }

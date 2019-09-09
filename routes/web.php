@@ -19,6 +19,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin/global/{mois}', 'AdminController@operationSelector');
+
 Route::get('/admin/dashboard','AdminController@dashboard');
 Route::get('/admin/dashboard/{name}','AdminController@delete');
 Route::get('/admin/add','AdminController@insert');

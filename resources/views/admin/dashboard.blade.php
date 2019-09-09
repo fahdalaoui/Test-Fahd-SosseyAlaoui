@@ -60,6 +60,7 @@
         </tbody>
     </table>
     <div><a href={{url('/admin/add')}}><button class="button btn-default">Ajouter gestionnaire/technicien</button></a></div>
+    <div><a href={{url('/admin/global/01')}}><button class="button btn-default">Tableau de bord</button></a></div>
     </div>
 </div>
 @endsection
