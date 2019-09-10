@@ -27,3 +27,21 @@ Pour faire marcher mon test sur votre server:
 	- copy .env.example .env // pour avoir le fichier .env dans votre répertoire
 	- php artisan key:generate //pour générer la cle d'application
 	- php artisan storage:link //pour lié le stockage sur la répertoire 'storage' avec le disque public
+
+
+Compte pour tester: 
+- Admin :
+Email: fahd.sossey.alaoui@gmail.com
+Mot de passe : 123456789
+
+- Gestionnaires : 
+Email :test3@gmail.com
+Mot de passe : 123456789
+
+- Techniciens 1:
+- Email : test@gmail.com
+Mot de passe : 123456789
+
+- Techniciens 2:
+- Email : test2@gmail.com
+Mot de passe : 123456789
