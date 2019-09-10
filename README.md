@@ -16,7 +16,7 @@ Afin de réaliser le test j'ai utilisé le framework 'Laravel':
 3. Selectionner lors de l'installation du 'Composer' la répertoire ou vous avez installer PHP sur WAMP/XAMP
 (pour moi : C:\wamp64\bin\php) et sélectionner la dernière version du PHP (pour moi : php 7.3.5)
 4. Installer le framework laravel depuis le CLI (Commande Line Interface) avec la commande : 'composer global require "laravel/intaller"
-5. Changer dans le fichier .env la line 'DB_CONNECTION=MySql' vers 'DB_CONNECTION=sqlite' et supprimer tout le reste pour
+5. Changer dans le fichier .env le line 'DB_CONNECTION=MySql' vers 'DB_CONNECTION=sqlite' et supprimer tout le reste pour
 faire marche le test avec sqlite database
 
 Annexes:
