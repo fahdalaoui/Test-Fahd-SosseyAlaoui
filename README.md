@@ -17,7 +17,7 @@ Afin de réaliser le test j'ai utilisé le framework 'Laravel':
 (pour moi : C:\wamp64\bin\php) et sélectionner la dernière version du PHP (pour moi : php 7.3.5)
 4. Installer le framework laravel depuis le CLI (Commande Line Interface) avec la commande : 'composer global require "laravel/intaller"
 5. Changer dans le fichier .env le line 'DB_CONNECTION=MySql' vers 'DB_CONNECTION=sqlite' et supprimer tout le reste pour
-faire marche le test avec sqlite database
+faire marcher le test avec sqlite database
 
 Annexes:
 Pour faire marcher mon test sur votre server:
