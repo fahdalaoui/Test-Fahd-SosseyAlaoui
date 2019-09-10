@@ -20,20 +20,20 @@ Afin de réaliser le test j'ai utilisé le framework 'Laravel':
 faire marcher le test avec sqlite database
 
 Annexes:
+
 Pour faire marcher mon test sur votre server:
 - Telecharger le test depuis le github: https://github.com/fahdalaoui/recrutement-test-Fahd-SosseyAlaoui
 - Depuis le CLI (Commande Line Interface) lancez les commandes suivantes:
 	- composer update //pour mettre à jour votre composer
 	- copy .env.example .env // pour avoir le fichier .env dans votre répertoire
 	- php artisan key:generate //pour générer la cle d'application
-	- php artisan storage:link //pour lié le stockage sur la répertoire 'storage' avec le disque public
+	- php artisan storage:link //pour lié le stockage sur la répertoire 'storage' avec le disque 'public' 
 
 
 Compte pour tester: 
 - Admin :
 Email: fahd.sossey.alaoui@gmail.com
-Mot de passe : 123456789
-
+Mot de passe : 1234567899
 - Gestionnaires : 
 Email :test3@gmail.com
 Mot de passe : 123456789
