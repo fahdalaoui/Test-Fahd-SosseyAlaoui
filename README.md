@@ -23,7 +23,7 @@ Annexes:
 
 Pour faire marcher mon test sur votre server:
 - Telecharger le test depuis le github: https://github.com/fahdalaoui/recrutement-test-Fahd-SosseyAlaoui
-- Depuis le CLI (Commande Line Interface) lancez les commandes suivantes:
+- Depuis le CLI (Commande Line Interface) lancer les commandes suivantes:
 	- composer update //pour mettre à jour votre composer
 	- copy .env.example .env // pour avoir le fichier .env dans votre répertoire
 	- php artisan key:generate //pour générer la cle d'application
